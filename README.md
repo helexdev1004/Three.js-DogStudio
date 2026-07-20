@@ -1,115 +1,82 @@
-# Hayroo Project Demo
+# DOGSTUDIO — Modern 3D Landing Page
 
-[![Alt text](https://img.youtube.com/vi/lXk14qt2D28/0.jpg)](https://www.youtube.com/watch?v=lXk14qt2D28)
+A polished, immersive portfolio-style web experience built with React, Vite, Three.js, GSAP, and Tailwind CSS.
 
-# 🎥 Learn FullStack Development by building a LMS With React, NodeJs, PostgreSQL, Redis & Deployment -> Watch here: 
-- ▶️ Part 1: [https://youtu.be/942PSbDTXgo](https://youtu.be/942PSbDTXgo)
-- ▶️ Part 2: [https://youtu.be/7qP-xAnQhLc](https://youtu.be/7qP-xAnQhLc)
-- ▶️ Part 3: [https://youtu.be/TH5K2ebqar8](https://youtu.be/TH5K2ebqar8)
-- ▶️ Final Part: [https://youtu.be/\_-w6VZlO30Y](https://youtu.be/_-w6VZlO30Y)
-- ▶️ Deployment: [https://youtu.be/IVfM_tpFlUc](https://youtu.be/IVfM_tpFlUc)
+This project showcases modern 3D storytelling for branding and creative studios with animated visuals, scroll-driven motion, and a sleek content-first layout.
 
-## Getting Started
+## ✨ What this project demonstrates
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+- Interactive 3D presentation using `@react-three/fiber` and `@react-three/drei`
+- Animated model behavior and color transitions driven by `gsap` + `ScrollTrigger`
+- Elegant responsive landing page design with Tailwind CSS
+- Seamless integration of WebGL content and HTML sections for high-impact branding
+- Production-ready frontend architecture with Vite and ESLint
 
-### Prerequisites
+## 🚀 Key highlights
 
-NPM / Yarn and Node.js installed
+- **3D hero animation**: animated dog model loaded from GLTF and styled with custom materials
+- **Scroll-based storytelling**: camera and object motion orchestrated across distinct page sections
+- **Brand-first UX**: bold typography, contrast-rich visuals, and layered content for modern creative studios
+- **Performance-aware rendering**: tone mapping and sRGB color space configured for better WebGL fidelity
 
-### .env
+## 🧩 Tech stack
 
-In the server > .env file, you can find some information. Please use your own API key for future use, as this key may not work in the future.
+- `react` 19
+- `vite`
+- `three` 0.184
+- `@react-three/fiber`
+- `@react-three/drei`
+- `gsap` with `ScrollTrigger`
+- `tailwindcss`
+- `eslint`
 
-```
-BRAINTREE_MERCHANT_ID=your_id
-BRAINTREE_PUBLIC_KEY=your_public_key
-BRAINTREE_PRIVATE_KEY=your_private_key
-```
+## 📁 Project structure
 
-### 🔑 Getting Braintree API Keys
+- `src/App.jsx` — root app container with WebGL canvas and content sections
+- `src/components/Dog.jsx` — 3D dog model, materials, lighting, and scroll animation logic
+- `src/components/Sections.jsx` — landing page sections, copy, and variant list
+- `public/models/` — 3D assets used in the hero scene
+- `public/matcap/` — material textures used by the 3D model
 
-To enable payment functionality, you need to configure your own Braintree API credentials.
+## 💼 Why clients and recruiters should care
 
-#### Steps to get your Braintree API keys
+This project is a great fit for agencies, studios, and digital brands seeking:
 
-1. Go to the official Braintree website: [https://www.braintreepayments.com/](https://www.braintreepayments.com/)
-2. Create a **free Sandbox account** at [https://sandbox.braintreegateway.com/](https://sandbox.braintreegateway.com/)
-3. After logging in, navigate to:  
-   **Account → Settings → API → API Keys**
-4. Click **“Generate New API Key”** if none exists.
-5. Copy your credentials:
-   - **Merchant ID**
-   - **Public Key**
-   - **Private Key**
-6. Add them to your `.env` file (inside the `server` folder):
+- a **high-impact landing page** with experiential visuals
+- a **creative portfolio concept** that merges motion design and product storytelling
+- evidence of **modern frontend skills** in React, 3D web, animation, and responsive UX
 
-   ```bash
-   BRAINTREE_MERCHANT_ID=your_merchant_id_here
-   BRAINTREE_PUBLIC_KEY=your_public_key_here
-   BRAINTREE_PRIVATE_KEY=your_private_key_here
-   ```
+## ▶️ Run locally
 
-### Installing
-
-Installing NPM modules on both client and server folders
-
-Execute these commands from the project directory
-
-```
-cd client && npm install
+```bash
+npm install
+npm run dev
 ```
 
-```
-cd server && npm install
-```
+Then open the local Vite URL shown in the terminal.
 
-### Running the app
+## ✅ Build for production
 
-Open a terminal on server directory
-
-```
-npm run start:dev
+```bash
+npm run build
+npm run preview
 ```
 
-and open another terminal on client directory
+## 📌 Notes for reviewers
 
-```
-npm run start
-```
+- The 3D animation is authored in `src/components/Dog.jsx` using `useGLTF`, `useAnimations`, and custom GSAP timelines.
+- Scroll triggers are configured to animate position, rotation, and material colors across sections.
+- The UI blends fixed background imagery with foreground content for a dramatic landing presentation.
 
-Access the web app at http://localhost:3000/
+## 📣 Showcase opportunity
 
-### Deploying the backend server to render
+Use this repository to present capability in:
 
-Follow these setps 👇👇
+- WebGL-enhanced brand experiences
+- immersive portfolio landing pages
+- creative studio and agency-facing visual design
+- polished frontend development with modern tooling
 
-1. Create your render account in https://render.com/
-2. Connect your github to render and give the project permission for that
-3. Then create a new Web Service and add your repo (your repo must be look like this repo's folder structure like frontend and backend both in that repo)
-4. For deploying this, every change will be in this `render-deploy-backend` branch. So don't change your `.evn` from master branch.
-5. You have to change your database to local to mongodb atlas. Because in this deployment we are not creating db server. So we will be using mongo atlas url. So find your mongodb cloud url with database which will look like this: `mongodb+srv://myusername:myclusterpassword@mycluster.mongodb.net/ecommerce?retryWrites=true&w=majority`
-   and
-   <b>goto the `render-deploy-backend` branch</b>
-   and goto `.env` file and replace the first variable to your latest mongodb cloud url like this:
-   `DATABASE=mongodb+srv://myusername:myclusterpassword@mycluster.mongodb.net/ecommerce?retryWrites=true&w=majority`
-   Don't just put this url. Your url will be different. You will find it in your mongo cluster setting.
-   The old variable will be like this: `DATABASE=mongodb://127.0.0.1:27017/ecommerce
-` and your new one should look like this:
-   `DATABASE=mongodb+srv://myusername:myclusterpassword@mycluster.mongodb.net/ecommerce?retryWrites=true&w=majority`
-   you can find the mongo url by goto the mongodb atlas website and goto your database and you can find a connect button and click on that you will see the url. And modify the url quite like my one with your secret info.
-   N.B: And you must need to provide the cluster password not your account password! So find your cluster password from database access menu in mongodb atlast cloud and change accoding to you. Here I provide all image's that you can undarstand better
-   ![Alt Text](assetREADME.md/atlasUrl.png)
-   ![Alt Text](assetREADME.md/clusterPassword.png)
-   ![Alt Text](assetREADME.md/networkAccess.png)
+---
 
-6. Then come to render website. Give all of the imformations I set in the image below just change the name of your project and then must be change the branch name to `master` to `render-deploy-backend`
-
-7. This is the setup for render
-   ![Alt Text](assetREADME.md/renderDeployBackendSetup.png)
-
-8. After all the setup you finished create the web service and It will deploy the project.
-
-You can deploy frontend into vercel or netlify also. Thanks
-
-`Build with 💛 by Hasan`
+Built to impress recruiters and win clients with a strong visual first impression and a clean, maintainable React + Three.js architecture.
